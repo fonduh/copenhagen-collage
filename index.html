@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f3efe6">
+  <meta name="description" content="Explore Fonda’s Copenhagen collage through its details, with image annotations and a scrolling notebook.">
+  <title>Copenhagen — a collage in notes</title>
+  <link rel="stylesheet" href="styles.css"><script src="app.js" defer></script>
+</head>
+<body>
+  <header class="masthead"><a class="wordmark" href="#top">Copenhagen<span>A collage by Fonda</span></a><div class="header-right"><span class="edition">A visual notebook · 2026</span><button id="areas" class="quiet" aria-pressed="false">Show areas <span aria-hidden="true">⌗</span></button></div></header>
+  <div class="reading-progress" aria-hidden="true"><div id="progress"></div></div>
+  <main id="top" class="layout">
+    <section class="art-column" aria-label="Interactive Copenhagen collage">
+      <div class="section-label"><span>01 / THE COLLAGE</span><span>Hover, tap, or follow a note <span aria-hidden="true">↘</span></span></div>
+      <div id="art" class="art">
+        <img id="collage" src="assets/copenhagen.webp" srcset="assets/copenhagen-small.webp 1050w, assets/copenhagen.webp 2100w" sizes="(max-width: 760px) 100vw, 68vw" width="2100" height="11557" alt="Fonda’s long Copenhagen collage: harbor houses, a swan, hand-drawn orange lettering, royal objects, city scenes, ceramics, food, and autumn gardens." fetchpriority="high">
+        <div id="hotspots"></div><div id="draw-layer" aria-hidden="true"><div id="selection"></div></div>
+      </div>
+      <footer class="art-footer"><span>Made by Fonda</span><a href="#top">Back to the beginning ↑</a></footer>
+    </section>
+    <aside class="notebook" aria-labelledby="notes-heading">
+      <div class="notebook-top"><span class="eyebrow">02 / FIELD NOTES</span><span id="counter" class="counter">01 / 08</span></div>
+      <h1 id="notes-heading">Look a little closer.</h1>
+      <p class="intro">Small details, collected together. Scroll through the notes and choose one to find its place in the collage.</p>
+      <div class="notes-toolbar"><span id="note-count"></span><button id="add" class="add">+ Add a note</button></div>
+      <div id="notes" class="notes" tabindex="0" aria-label="Scrollable annotation notes"></div>
+      <div class="notebook-bottom"><p id="save-state">Your edits are saved on this device.</p><div class="file-actions"><button id="download">Download notes <span aria-hidden="true">↓</span></button><button id="import">Import notes <span aria-hidden="true">↑</span></button><input id="import-file" type="file" accept="application/json,.json" hidden></div><p class="starter-note">Starter notes describe what’s pictured. Make them your own with Edit.</p></div>
+    </aside>
+  </main>
+  <div id="draw-banner" class="draw-banner" hidden><span>Drag a box around the detail you want to annotate.</span><button id="cancel-draw">Cancel</button></div>
+  <div id="tooltip" class="tooltip" role="tooltip" hidden><strong></strong><p></p></div>
+  <div id="announcement" class="sr-only" aria-live="polite"></div>
+  <div id="toast" class="toast" role="status" hidden></div>
+  <dialog id="editor" aria-labelledby="editor-title"><form id="note-form"><div class="dialog-heading"><span class="eyebrow">A NOTE ON THIS DETAIL</span><button type="button" id="close-editor" class="close" aria-label="Close editor">×</button></div><h2 id="editor-title">Add your story.</h2><label for="title-input">Title</label><input id="title-input" name="title" required maxlength="100" autocomplete="off" placeholder="A detail worth remembering"><label for="body-input">Your annotation</label><textarea id="body-input" name="body" rows="6" maxlength="2000" placeholder="What caught your eye?"></textarea><div class="dialog-actions"><button id="delete-note" type="button" class="delete" hidden>Delete note</button><button type="submit" class="save">Save note <span aria-hidden="true">↗</span></button></div><p class="dialog-footnote">Saved on this device. Download your notes to keep a portable copy.</p></form></dialog>
+</body>
+</html>
